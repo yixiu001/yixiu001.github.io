@@ -1,0 +1,50 @@
+# Basic
+title: 一休
+#subtitle:
+description: 免费分享各种好用的工具和教程
+welcome_message: 上干货，不废话。
+#welcome_message: <a href="#" target="_blank">Download the theme</a>
+#creator: <a href="http://xxx.com">@yourID</a>
+
+
+url: "https://i.scjp.cc"
+
+permalink: /:year/:month/:title/
+
+# Format
+highlighter: rouge
+
+# supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
+cover_color: slate
+
+# The blog button should not be removed.
+blog_button:
+    title: Blog
+    description: Visit blog
+
+# Navigation buttons in the front page.
+nav:
+    # - {title: Another Button, description: A button, url: 'http://example.com'}
+
+# Pagination
+plugins: [jekyll-paginate]
+paginate: 8
+paginate_path: "page/:num/"
+
+# Comment
+comment:
+    #disqus: disqusID
+    # duoshuo: 
+    
+# Social
+social:
+    #weibo: 一休
+    github: 一休
+    twitter: 一休
+    gplus: 一休
+    mail: mail@lvyabin.com
+
+# Google Analytics
+ga:
+    # id: your_ga_id
+    # host: your_host
