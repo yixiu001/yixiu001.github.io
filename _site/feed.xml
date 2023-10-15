@@ -5,8 +5,8 @@
     <description>免费分享各种好用的工具和教程</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 15 Oct 2023 19:13:24 +0800</pubDate>
-    <lastBuildDate>Sun, 15 Oct 2023 19:13:24 +0800</lastBuildDate>
+    <pubDate>Sun, 15 Oct 2023 20:42:43 +0800</pubDate>
+    <lastBuildDate>Sun, 15 Oct 2023 20:42:43 +0800</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
   </channel>

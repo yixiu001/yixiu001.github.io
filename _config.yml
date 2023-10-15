@@ -19,8 +19,8 @@ cover_color: slate
 
 # The blog button should not be removed.
 blog_button:
-    title: Blog
-    description: Visit blog
+    title: 点击进入
+    description: 一休老家
 
 # Navigation buttons in the front page.
 nav:
@@ -38,10 +38,11 @@ comment:
     
 # Social
 social:
-    #weibo: 一休
-    github: 一休
-    twitter: 一休
-    gplus: 一休
+    #weibo:
+    github: yixiu001
+#    twitter:
+#    gplus:
+    youtube: yixiu001
     mail: mail@lvyabin.com
 
 # Google Analytics
