@@ -7,6 +7,7 @@ welcome_message: 上干货，不废话。
 #creator: <a href="http://xxx.com">@yourID</a>
 
 
+
 url: "https://i.scjp.cc"
 
 permalink: /:year/:month/:title/
@@ -49,3 +50,6 @@ social:
 ga:
     # id: your_ga_id
     # host: your_host
+
+# 时区
+ timezone: Asia/Shanghai

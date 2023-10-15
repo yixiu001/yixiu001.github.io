@@ -1,5 +1,5 @@
 # 一休
-我的个人博客主页 &rarr;[一休](https://scjp.cc)
+我的个人博客主页 &rarr;[一休](https://yixiu.scjp.cc)
 
 
 ### 1. 如何部署
