@@ -24,7 +24,7 @@ blog_button:
 
 # Navigation buttons in the front page.
 nav:
-     - {title: HOME, description: 首页, url: 'https://yixiu.scjp.cc'}
+#     - {title: HOME, description: 首页, url: 'https://yixiu.scjp.cc'}
 
 # Pagination
 plugins: [jekyll-paginate]
