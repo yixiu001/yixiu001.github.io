@@ -7,7 +7,7 @@ welcome_message: 上干货，不废话。
 #creator: <a href="http://xxx.com">@yourID</a>
 
 
-url: "https://i.scjp.cc"
+url: "https://yixiu.scjp.cc"
 
 permalink: /:year/:month/:title/
 
@@ -24,7 +24,7 @@ blog_button:
 
 # Navigation buttons in the front page.
 nav:
-    # - {title: Another Button, description: A button, url: 'http://example.com'}
+     - {title: HOME, description: 首页, url: 'https://yixiu.scjp.cc'}
 
 # Pagination
 plugins: [jekyll-paginate]
