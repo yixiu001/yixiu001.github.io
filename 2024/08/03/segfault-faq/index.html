@@ -1,0 +1,461 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="referrer" content="no-referrer"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Segfault 相关的常见问题。 | 一休のBlog</title><meta name="keywords" content="免费VPS,VPS"><meta name="author" content="一休"><meta name="copyright" content="一休"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Segfault 相关的常见问题。"><meta name="application-name" content="Segfault 相关的常见问题。"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Segfault 相关的常见问题。"><meta property="og:url" content="https://yixiu.icu/2024/08/03/segfault-faq/index.html"><meta property="og:site_name" content="一休のBlog"><meta property="og:description" content="1、我的问题没有在这里得到解答加入我们的Telegram 频道并提出您的问题。我们会尽力回答。 2、我的根服务器有问题加入我们的Telegram 频道，向我们发送输出echo &amp;quot;$SF_HOSTNAME $SF_LID $SF_FQDN&amp;quot; 和屏幕截图。解释您的问题（您期望看到或发"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://github.com/yixiu001/Figurebed/raw/main/blog/post/segfault.png"><meta property="article:author" content="一休"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://github.com/yixiu001/Figurebed/raw/main/blog/post/segfault.png"><meta name="description" content="1、我的问题没有在这里得到解答加入我们的Telegram 频道并提出您的问题。我们会尽力回答。 2、我的根服务器有问题加入我们的Telegram 频道，向我们发送输出echo &amp;quot;$SF_HOSTNAME $SF_LID $SF_FQDN&amp;quot; 和屏幕截图。解释您的问题（您期望看到或发"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico"><link rel="canonical" href="https://yixiu.icu/2024/08/03/segfault-faq/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: '',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: {"enable":true,"title":"与数百名博主无限进步","addFriendPlaceholder":"昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n站点截图（可选）：\n"},
+  peoplecanvas: undefined,
+  postHeadAiDescription: undefined,
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: {"enable":true,"ck":"3Iy0SfRTgJLZNp1V","LingQueMonitorID":"3Iy0SfRTgJLZNp1V"},
+  greetingBox: undefined,
+  twikooEnvId: 'https://yixiu001-myblog.hf.space',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: false,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 智能家居小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: 一休","link":"链接: ","source":"来源: 一休のBlog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '一休のBlog',
+  title: 'Segfault 相关的常见问题。',
+  postAI: '',
+  pageFillDescription: '我的问题没有在这里得到解答加入我们的频道并提出您的问题我们会尽力回答我的根服务器有问题加入我们的频道向我们发送输出和屏幕截图解释您的问题您期望看到或发生什么以及您看到或发生的实际情况我能做蠢事吗不可以您不能挖掘加密货币或使用段错误来做愚蠢或非法的事情这也不是盗版软件交易平台这也不是匿名访问互联网的廉价方式请购买您自己的场除非您正在进行研究或从事一些伟大的项目否则请离开加入我们的频道尤其是如果您是新手参与和讨论我可以做漏洞赏金吗几乎不会工具经常淹没目标对我们来说它们是一种成本但你却能赚钱捐款我们很乐意升级您的资源一些优秀的猎人使用来获取资源友好的工具如而无需捐款只要您参与讨论并分享您的想法我们就会很满意如何重新登录我的服务器注销时您将看到一个允许您重新登录到服务器的命令它包含一个允许您访问您的服务器注销屏幕可能如下所示使用命令和密码重新登录到您的服务器如果您不使用相同的而是直接使用那么将为您创建一个具有新文件系统的新服务器或者使用密码并在询问时输入您的还有和的帮助当我再次登录时我的文件不见了您没有设置这意味着当您第二次登录时创建了一个全新的服务器服务器将运行多长时间如果您保持登录状态活动会话连接则永远运行如果没有运行在或屏幕中并且天内无人登录则可能会自动关闭服务器可能会在重大软件升级期间或由于滥用而关闭中的数据永远不会被删除或丢失即使关闭并且中的数据在您下次登录时再次可用但您可能必须再次启动后台进程这些限制不适用于普通用户我注销后我的进程就消失了请参见上文为何我的更改丢失了您的主目录以及和中的数据是永久的仅当服务器天以上未登录时才会清除此数据空或已满的不良服务器可能会提前被清除中的数据仅在会话期间有效并在您注销时消失您可以使用和等但包只能在您注销之前使用或者您可以将任何包安装到对于具有的服务器这些超时是无限的我如何获得更多资源免费服务受到限制出站流量受到限制向我们索取秘密令牌以获取更多资源任何从事酷炫项目的人都可以免费获得令牌您可以通过输入来查看当前的限制我的进程被终止了请阅读上文我可以扫描吗不建议这么做扫描前个端口后扫描速度将减慢到每秒个端口使用您自己的节点进行批量扫描我收到错误您可能在尝试登录现有服务器时遇到了此错误您需要将客户端更新到较新版本或者您可以尝试其中是您的或到如何安装服务或守护进程请查看此文件在启动时执行没有如何启动浏览或使用单击我是新来的创建新服务器单击我来过这里登录到您现有的服务器获取您的并在其前面加上简短的服务器名称示例使用登录启动会话并执行然后使用连接到使用登录启动会话然后浏览到如何发布我的网页网页使用和出色的语法自动生成您需要做的就是编辑文件然后执行如何更改密码您不能访问密码始终是但是没有人可以使用作为密码访问您的服务器系统为每个新登录生成一个唯一的新密码然后使用此设置您的私人虚拟服务器与所有其他服务器隔离只有这个允许您访问您的服务器阅读下一段它何时自毁注销或输入时立即自毁您的服务器关闭所有系统数据和内存都将被清除只有在服务器运行时才能访问和中的私人数据当您使用相同的服务器重新登录时您的服务器将重新启动并且您的旧私人数据将再次附加到加密您可以通过输入来擦除所有数据包括您的加密数据使用哪个登录时会显示条或更多线路这些是提供商您的传出流量通过这些提供商路由您的每个传出连接都通过不同的多路径路由离开出口节点每隔几天循环一次有工具列表吗服务器预装了大约的工具查看完整列表如果缺少任何工具请告知我们我们可以永久添加它如何上传下载文件使用或更短的版本或者使用下面显示的端口转发登录输入并将浏览器指向或者阅读如何在永久反向隧道上运行服务器以通过访问您的文件将您的文件复制到并通过下载通过反向端口使用无需密码登录输入并按照如下说明操作然后使用以下任意命令和不起作用有一个解决方法使用登录到您的根服务器保持此处于打开状态并处于活动状态然后从工作站上的另一个终端执行或者在你的文件中为创建一个条目并使用登录供使用我可以在公共上运行服务吗不您的根服务器没有公共您可以连接到互联网但没有人可以连接回您的服务器请参阅下文了解唯一的例外有很多方法可以将原始端口从公共隧道传输回您的根服务器对于隧道请使用或如何使用反向端口转发您可以使用在公共地址上分配一个端口此端口是临时的每天会更改一次这是您用于反向连接反向的个人任何与端口上的的连接都将转发到端口上的服务器您可以像这样监听连接和只是示例您需要在登录时阅读登录消息以了解您的和或检查和是临时的可能每隔几天就会更改阅读的提示和技巧以了解替代方案我可以使用吗是的但只能从您的根服务器连接例如连接到或类似服务器您不能使用连接到您的根服务器只能连接使用或者尝试如何在临时反向端口上运行网络服务器仅用于临时共享反向端口可能随时更改如何在永久反向隧道上运行网络服务器您的将显示给您看起来像可选择在内部启动隧道以便在退出会话后隧道仍保持连接继续阅读',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-08-03 14:06:40',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/logo.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网站</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://youtube.com/@yixiu001" title="YouTuBe"><img class="back-menu-item-icon" src="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico" alt="YouTuBe"/><span class="back-menu-item-text">YouTuBe</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/yixiu001/Figurebed" title="一休自定义图床"><img class="back-menu-item-icon" src="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico" alt="一休自定义图床"/><span class="back-menu-item-text">一休自定义图床</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">一休のBlog</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 全部文章</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于一休</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.youtube.com/@yixiu001"><i class="anzhiyufont anzhiyu-icon-play faa-tada" style="font-size: 0.9em;"></i><span> YouTuBe频道</span></a></li><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://github.com/yixiu001/"><i class="anzhiyufont anzhiyu-icon-github faa-tada" style="font-size: 0.9em;"></i><span> GitHub仓库</span></a></li><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://t.me/yxjsjl"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> TG电报群</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/wechatpay.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AppleID/" style="font-size: 1.05rem;">AppleID<sup>1</sup></a><a href="/tags/VPS/" style="font-size: 1.05rem;">VPS<sup>2</sup></a><a href="/tags/serv00/" style="font-size: 1.05rem;">serv00<sup>1</sup></a><a href="/tags/vps/" style="font-size: 1.05rem;">vps<sup>1</sup></a><a href="/tags/%E5%85%8D%E8%B4%B9VPS/" style="font-size: 1.05rem;">免费VPS<sup>2</sup></a><a href="/tags/%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D/" style="font-size: 1.05rem;">免费域名<sup>2</sup></a><a href="/tags/%E6%97%A0%E9%99%90%E9%82%AE%E7%AE%B1/" style="font-size: 1.05rem;">无限邮箱<sup>1</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 1.05rem;">虚拟主机<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/VPS/" itemprop="url">VPS</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%85%8D%E8%B4%B9VPS/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>免费VPS</span></a><a class="article-meta__tags" href="/tags/VPS/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>VPS</span></a></span></div></div><h1 class="post-title" itemprop="name headline">Segfault 相关的常见问题。</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-08-03T05:41:51.000Z" title="发表于 2024-08-03 13:41:51">2024-08-03</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-08-03T06:06:40.100Z" title="更新于 2024-08-03 14:06:40">2024-08-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">2.6k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="Segfault 相关的常见问题。"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span></div></div></div><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://github.com/yixiu001/Figurebed/raw/main/blog/post/segfault.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://yixiu.icu/2024/08/03/segfault-faq/"><header><a class="post-meta-categories" href="/categories/VPS/" itemprop="url">VPS</a><a href="/tags/%E5%85%8D%E8%B4%B9VPS/" tabindex="-1" itemprop="url">免费VPS</a><a href="/tags/VPS/" tabindex="-1" itemprop="url">VPS</a><h1 id="CrawlerTitle" itemprop="name headline">Segfault 相关的常见问题。</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">一休</span><time itemprop="dateCreated datePublished" datetime="2024-08-03T05:41:51.000Z" title="发表于 2024-08-03 13:41:51">2024-08-03</time><time itemprop="dateCreated datePublished" datetime="2024-08-03T06:06:40.100Z" title="更新于 2024-08-03 14:06:40">2024-08-03</time></header><p><strong>1、我的问题没有在这里得到解答</strong><br>加入我们的<a target="_blank" rel="noopener" href="https://t.me/thcorg">Telegram</a> 频道并提出您的问题。我们会尽力回答。</p>
+<p><strong>2、我的根服务器有问题</strong><br>加入我们的<a target="_blank" rel="noopener" href="https://t.me/thcorg">Telegram</a> 频道，向我们发送输出<code>echo &quot;$SF_HOSTNAME $SF_LID $SF_FQDN&quot;</code> 和屏幕截图。解释您的问题（您期望看到或发生什么以及您看到或发生的实际情况）。</p>
+<p><strong>3、我能做蠢事吗？</strong><br>不可以。您不能挖掘加密货币或使用段错误来做愚蠢或非法的事情。这也不是盗版软件交易平台。这也不是“匿名访问互联网的廉价方式”——请购买您自己的✈️场。除非您正在进行研究或从事一些伟大的项目，否则请离开。加入我们的<a target="_blank" rel="noopener" href="https://t.me/thcorg">Telegram</a> 频道（尤其是如果您是新手）：参与和讨论。</p>
+<p><strong>4、我可以做漏洞赏金吗？</strong><br>几乎不会。BB 工具经常淹没目标。对我们来说，它们是一种成本，但你却能赚钱 🤭。捐款，我们很乐意升级您的资源。一些优秀的 BB 猎人使用 Segfault 来获取资源友好的工具（如 BurpSuite），而无需捐款，只要您参与讨论并分享您的想法，我们就会很满意。</p>
+<p><strong>5、如何重新登录我的服务器？</strong><br>注销时，您将看到一个允许您重新登录到服务器的命令<code>SECRET</code>。它包含一个<code>SECRET</code>允许您访问您的服务器。注销屏幕可能如下所示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Access with      : ssh -o &quot;SetEnv SECRET=XXX...&quot; root@NNN.segfault.net</span><br><span class="line">GOODBYE          : Join us on Telegram - https://t.me/thcorg</span><br></pre></td></tr></table></figure>
+
+<p>使用命令<code>ssh -o &quot;SetEnv SECRET=XXX...</code>和密码<code>segfault</code>重新登录到您的服务器。如果您不使用相同的 <code>SECRET</code>，而是直接使用，<code>ssh root@segfault.net</code>那么将为您创建一个具有新 <code>/sec</code> 文件系统的新服务器。或者使用<code>ssh secret@NNN.segfault.net</code>密码<code>segfault</code>，并在询问时输入您的 <code>SECRET</code>。还有<a target="_blank" rel="noopener" href="https://www.thc.org/segfault/faq/putty/">PuTTy</a>、<a target="_blank" rel="noopener" href="https://www.thc.org/segfault/faq/winscp/">WinSCP</a>和<a target="_blank" rel="noopener" href="https://www.thc.org/segfault/faq/termius/">Termius</a>的帮助。</p>
+<p><strong>6、当我再次登录时，我的文件不见了</strong><br>您没有设置<code>-o SetEnv &quot;SECRET=XXX...&quot;</code>。这意味着当您第二次登录时，创建了一个全新的服务器。</p>
+<p><strong>7、服务器将运行多长时间？</strong><br>如果您保持登录状态（活动会话&#x2F;连接），则永远运行。如果没有运行 shell（在 tmux 或屏幕中）并且 1.5 天内无人登录，则可能会自动关闭。服务器可能会在重大软件升级期间或由于滥用而关闭。&#x2F;sec 中的数据永远不会被删除或丢失（即使关闭），并且 &#x2F;sec 中的数据在您下次登录时再次可用（但您可能必须再次启动后台进程）。这些限制不适用于<a target="_blank" rel="noopener" href="https://www.thc.org/segfault/token/">普通用户</a>。</p>
+<p><strong>8、我注销后，我的进程就消失了</strong><br>请参见上文。</p>
+<p><strong>9、为何我的更改丢失了？</strong><br>您的主目录以及 <code>/sec</code>、<code>/onion</code> 和 <code>/everyone</code> 中的数据是永久的。仅当服务器 30 天以上未登录时，才会清除此数据。“空”或“100% 已满”的不良服务器可能会提前被清除。（&#x2F;usr、&#x2F;tmp、…）中的数据仅在会话期间有效，并在您注销时消失。您可以使用<code>apt install</code>和<code>pipx install</code>等，但包只能在您注销之前使用。或者，您可以将任何包安装到。对于具有<code>TOKENS</code> 的<code>/sec/usr</code>服务器，这些超时是无限的。</p>
+<p><strong>10、我如何获得更多资源？</strong><br>免费服务受到限制，出站流量受到限制。向我们索取秘密令牌以获取更多资源。任何从事酷炫项目的人都可以免费获得令牌<code>cat /config/self/limits</code>。您可以通过输入来查看当前的限制。</p>
+<p><strong>11、我的进程被终止了</strong><br>请阅读上文。</p>
+<p><strong>12、我可以扫描吗？</strong><br>不建议这么做。扫描前 8,000 个端口后，扫描速度将减慢到每秒 2 个端口。使用您自己的 EXIT 节点进行批量扫描。</p>
+<p><strong>13、我收到 SSH 错误</strong><br>您可能<code>Bad configuration option: setenv</code>在尝试登录现有服务器时遇到了此错误。您需要将 <code>OpenSSH</code> 客户端更新到较新版本 ( ssh -V)。或者，您可以尝试<code>SECRET=XXX ssh -o &quot;SendEnv SECRET&quot; root@segfault.net</code>(其中 XXX 是您的SECRET ) 或 <code>ssh</code> 到<code>secret@segfault.net</code>。</p>
+<p><strong>14、如何安装服务或守护进程？</strong><br>请查看<code>/sec/usr/etc/rc.local</code>。此文件在启动时执行。没有 <code>systemd/systemctl</code>。</p>
+<p><strong>15、如何启动 Web 浏览、VNC 或 GUI？</strong></p>
+<ul>
+<li>使用<a href="https://shell.segfault.net。单击“我是新来的”创建新服务器。单击“我来过这里”登录到您现有的服务器：获取您的">https://shell.segfault.net。单击“我是新来的”创建新服务器。单击“我来过这里”登录到您现有的服务器：获取您的</a> SECRET 并在其前面加上简短的服务器名称。示例 Secret 8lgm-XXX…：。</li>
+<li>使用 SSH 登录启动 VNC 会话：ssh -L5900:0:5900 <servername>并执行startxvnc。然后使用 VNC 连接到 127.0.0.1:5900</li>
+<li>使用 SSH 登录，启动 XPRA 会话：ssh -L2000:0:2000 <servername>然后浏览到 <a href="http://127.0.0.1:2000。">http://127.0.0.1:2000。</a><br><strong>16、如何发布我的网页？</strong><br>网页使用<code>Pelican</code>和出色的 <code>Markdown</code> 语法自动生成。您需要做的就是编辑文件<code>/sec/www/content</code>，然后执行：</li>
+</ul>
+<p><code>cd /sec/www &amp;&amp; make html</code><br><strong>17、如何更改密码？</strong><br>您不能。访问密码始终是<code>segfault</code>。但是，没有人可以使用<code>segfault</code>作为密码访问您的服务器：系统<code>SECRET</code>为每个新登录生成一个唯一的新密码，然后使用此 SECRET 设置您的私人虚拟服务器（与所有其他服务器隔离）。只有这个 SECRET 允许您访问您的服务器。阅读下一段……</p>
+<p><strong>18、它何时自毁？</strong><br>注销或输入 时立即自毁halt。您的服务器关闭，所有系统数据和内存都将被清除。只有在服务器运行时才能访问 <code>/sec</code> 和 <code>/root</code> 中的私人数据。当您使用相同的服务器重新登录时，<code>SECRET</code>您的服务器将重新启动，并且您的（旧）私人数据将再次附加到 <code>/sec</code>（加密）。您可以通过输入 来擦除所有数据（包括您的加密数据）<code>destruct</code>。</p>
+<p><strong>19、使用哪个 EXIT IP？</strong><br>登录时会显示 3 条或更多EXIT IP线路。这些是 VPN 提供商，您的传出流量通过这些提供商路由。您的每个传出连接都通过不同的 EXIT（多路径路由）离开。VPN 出口节点每隔几天循环一次。</p>
+<p><strong>20、有工具列表吗？</strong><br>服务器预装了大约 54GB 的工具。查看完整列表。如果缺少任何工具，请告知我们，我们可以（永久）添加它。</p>
+<p><strong>21、如何上传&#x2F;下载文件？</strong><br>使用<code>scp -o &quot;SetEnv SECRET=XXX...&quot; root@...</code>或更短的版本<code>scp &lt;servername&gt;</code>。或者使用下面显示的端口转发登录，输入<code>startfb</code>并将浏览器指向 <a target="_blank" rel="noopener" href="http://127.0.0.1:2900/">http://127.0.0.1:2900</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -L2900:0:2900 -o &quot;SetEnv SECRET=XXX...&quot; root@&lt;servername&gt;</span><br><span class="line">startfb</span><br></pre></td></tr></table></figure>
+
+<p>或者：</p>
+<ul>
+<li>阅读如何在永久反向隧道上运行 Web 服务器以通过 Cloudflare 访问您的文件。</li>
+<li>将您的文件复制到 &#x2F;onion 并通过 TOR 下载。</li>
+<li>通过反向端口使用rsync 。<br><strong>22、无需密码登录</strong><br>输入<code>info</code>并按照如下说明操作：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:Cut &amp; Paste these lines to your workstation&#x27;s shell to retain access:</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#####################################################################</span></span></span><br><span class="line">cat &gt;~/.ssh/id_sf-NNN-segfault-net &lt;&lt;&#x27;__EOF__&#x27;</span><br><span class="line">-----BEGIN OPENSSH PRIVATE KEY-----</span><br><span class="line">[...]</span><br></pre></td></tr></table></figure>
+然后使用以下任意命令：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh  your-server-name</span><br><span class="line">sftp your-server-name</span><br><span class="line">scp  your-server-name:stuff.tar.gz ~/</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>23、SSH ProxyJump 和 -N 不起作用</strong><br>有一个解决方法。使用 登录到您的根服务器<code>ssh -D1080 ...</code>。保持此 shell 处于打开状态并处于活动状态。然后（从工作站上的另一个终端）执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -o ProxyCommand=&#x27;socat - &quot;SOCKS4A:0:%h:%p,socksuser=nobody|tcp:0:1080&quot;&#x27; user@remotehost.foo</span><br></pre></td></tr></table></figure>
+<p>或者在你的 ~&#x2F;.ssh&#x2F;config 文件中为 ‘<a href="mailto:&#x75;&#x73;&#x65;&#x72;&#x40;&#114;&#101;&#109;&#x6f;&#116;&#101;&#x68;&#x6f;&#x73;&#x74;&#46;&#102;&#111;&#111;">&#x75;&#x73;&#x65;&#x72;&#x40;&#114;&#101;&#109;&#x6f;&#116;&#101;&#x68;&#x6f;&#x73;&#x74;&#46;&#102;&#111;&#111;</a>‘ 创建一个条目：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host remotehost</span><br><span class="line">hostname remotehost.foo</span><br><span class="line">ProxyCommand socat - &quot;SOCKS4A:0:%h:%p,socksuser=nobody|tcp:0:1080&quot;</span><br></pre></td></tr></table></figure>
+<p>并使用<code>ssh user@remotehost</code>登录。</p>
+<p>（供 socat2 使用<code>socat2 - &quot;SOCKS4A:%h:%p|tcp:0:1080&quot;</code>）</p>
+<p><strong>24、我可以在公共 IP 上运行服务吗？</strong><br>不。您的根服务器没有公共 IP：您可以连接（到互联网），但没有人可以连接回您的服务器（请参阅下文了解唯一的例外）。有<a target="_blank" rel="noopener" href="https://github.com/hackerschoice/thc-tips-tricks-hacks-cheat-sheet#tunnel">很多方法</a>可以将原始 TCP 端口从公共 IP 隧道传输回您的根服务器。对于 HTTPS 隧道，请使用<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/">Cloudflared</a>、<a target="_blank" rel="noopener" href="https://pagekite.net/">Pagekite</a>或<a target="_blank" rel="noopener" href="https://ngrok.com/download">ngrok</a>。</p>
+<p><strong>25、如何使用反向端口转发？</strong><br>您可以使用在公共 IP 地址上分配一个<code>curl sf/port</code>端口。此端口是临时的，每 0-7 天会更改一次：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">👾 New reverse Port is 1.12.123.222:1234</span><br></pre></td></tr></table></figure>
+<p>这是您用于反向连接&#x2F;反向 shell 的个人 IP:PORT。任何与端口 1234 上的 1.12.123.222 的连接都将转发到端口 1234 上的服务器。您可以像这样监听连接：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nc -vnlp 1234</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">If this is <span class="keyword">for</span> a connect-back shell <span class="keyword">then</span> you likely like to press</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Ctrl-Z after connection and <span class="built_in">type</span> <span class="string">&#x27;stty raw -echo opost; fg&#x27;</span></span></span><br></pre></td></tr></table></figure>
+<p>（IP 和 PORT 只是示例。您需要在登录时阅读登录消息以了解您的 IP 和 PORT 或检查<code>/config/self/reverse_*</code>。IP 和 PORT 是临时的，可能每隔几天就会更改。）</p>
+<p>阅读<a target="_blank" rel="noopener" href="https://github.com/hackerschoice/thc-tips-tricks-hacks-cheat-sheet#ports">THC 的提示和技巧</a>以了解替代方案。</p>
+<p><strong>26、我可以使用 OpenVPN 吗？</strong><br>是的 - 但只能从您的根服务器连接 OUT（例如连接到 HackTheBox 或类似服务器）。您不能使用OpenVPN 连接到您的根服务器（只能连接 OUT）：使用curl sf&#x2F;ovpn。或者，尝试<a target="_blank" rel="noopener" href="https://www.thc.org/segfault/wireguard/">WireGuard</a>。</p>
+<p><strong>27、如何在临时反向端口上运行网络服务器？</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Folder $&#123;CDY&#125;$(pwd)$&#123;CN&#125; is now shared at $&#123;CB&#125;$&#123;CUL&#125;http://$(&lt;/config/self/reverse_ip):$(&lt;/config/self/reverse_port)$&#123;CN&#125;&quot;</span><br><span class="line">python -m http.server &quot;$(&lt;/config/self/reverse_port)&quot;</span><br></pre></td></tr></table></figure>
+<p>（仅用于临时共享。反向端口可能随时更改。）</p>
+<p><strong>28、如何在永久反向隧道上运行网络服务器？</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /onion</span><br><span class="line">(python -m http.server --bind 127.0.0.1 8080 &amp;&gt;/dev/null &amp;)</span><br><span class="line">cloudflared tunnel --url http://localhost:8080 --no-autoupdate</span><br></pre></td></tr></table></figure>
+<p>您的 HTTPS URL 将显示给您（看起来像<code>https://blah-foo-one-two.trycloudflare.com</code>）。可选择在内部启动隧道tmux，以便在退出 SSH 会话后隧道仍保持连接。<a target="_blank" rel="noopener" href="https://github.com/hackerschoice/thc-tips-tricks-hacks-cheat-sheet/blob/master/README.md#https">继续阅读&gt;&gt;</a></p>
+</article><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/08/03/segfault/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://github.com/yixiu001/Figurebed/raw/main/blog/post/segfault.png" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">segfault免费的无限根服务器。为每个 SSH 连接创建一个新服务器</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2024/08/03/segfault/" title="segfault免费的无限根服务器。为每个 SSH 连接创建一个新服务器"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://github.com/yixiu001/Figurebed/raw/main/blog/post/segfault.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-08-03</div><div class="title">segfault免费的无限根服务器。为每个 SSH 连接创建一个新服务器</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/logo.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/error_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这里所有的文章都起源于，平时遇到的<b style="color:#fff">问题</b>以及群里小伙伴的<b style="color:#fff">分享</b></div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">感谢关注！！希望你可以在这里找到你需要的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">一休</h1><div class="author-info__desc"></div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://www.youtube.com/@yixiu001" target="_blank" title="YouTuBe"><i class="anzhiyufont anzhiyu-icon-play"></i></a><a class="social-icon faa-parent animated-hover" href="https://github.com/yixiu001" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://t.me/yxjsjl" target="_blank" title="Telegram"><i class="anzhiyufont anzhiyu-icon-paper-plane"></i></a></div></div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来看我的博客鸭~</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/03/segfault-faq/" title="Segfault 相关的常见问题。"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://github.com/yixiu001/Figurebed/raw/main/blog/post/segfault.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif'" alt="Segfault 相关的常见问题。"/></a><div class="content"><a class="title" href="/2024/08/03/segfault-faq/" title="Segfault 相关的常见问题。">Segfault 相关的常见问题。</a><time datetime="2024-08-03T05:41:51.000Z" title="发表于 2024-08-03 13:41:51">2024-08-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/03/segfault/" title="segfault免费的无限根服务器。为每个 SSH 连接创建一个新服务器"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://github.com/yixiu001/Figurebed/raw/main/blog/post/segfault.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif'" alt="segfault免费的无限根服务器。为每个 SSH 连接创建一个新服务器"/></a><div class="content"><a class="title" href="/2024/08/03/segfault/" title="segfault免费的无限根服务器。为每个 SSH 连接创建一个新服务器">segfault免费的无限根服务器。为每个 SSH 连接创建一个新服务器</a><time datetime="2024-08-03T05:30:53.000Z" title="发表于 2024-08-03 13:30:53">2024-08-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/13/freeboundlessemail/" title="如何拥有无限免费邮箱 并且所有邮件全部转发到gmail邮箱实现多邮箱管理｜隐藏真实邮箱｜完全免费"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://github.com/yixiu001/Figurebed/raw/main/youtube/无限免费邮箱.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif'" alt="如何拥有无限免费邮箱 并且所有邮件全部转发到gmail邮箱实现多邮箱管理｜隐藏真实邮箱｜完全免费"/></a><div class="content"><a class="title" href="/2024/07/13/freeboundlessemail/" title="如何拥有无限免费邮箱 并且所有邮件全部转发到gmail邮箱实现多邮箱管理｜隐藏真实邮箱｜完全免费">如何拥有无限免费邮箱 并且所有邮件全部转发到gmail邮箱实现多邮箱管理｜隐藏真实邮箱｜完全免费</a><time datetime="2024-07-12T17:56:21.000Z" title="发表于 2024-07-13 01:56:21">2024-07-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/12/serv00-re/" title="serv00《一》关于免费10年VPS-serv00的注册与自动化保号-搭建vless节点"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://github.com/yixiu001/Figurebed/raw/main/youtube/FreeServ00-re.png" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif'" alt="serv00《一》关于免费10年VPS-serv00的注册与自动化保号-搭建vless节点"/></a><div class="content"><a class="title" href="/2024/07/12/serv00-re/" title="serv00《一》关于免费10年VPS-serv00的注册与自动化保号-搭建vless节点">serv00《一》关于免费10年VPS-serv00的注册与自动化保号-搭建vless节点</a><time datetime="2024-07-12T13:25:01.000Z" title="发表于 2024-07-12 21:25:01">2024-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/11/meiquappleid-md/" title="美区Apple ID注册全攻略：在中国如何注册美区Apple ID账号？｜百分百注册成功｜完全免费"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/youtube/美区AppleID.webp" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif'" alt="美区Apple ID注册全攻略：在中国如何注册美区Apple ID账号？｜百分百注册成功｜完全免费"/></a><div class="content"><a class="title" href="/2024/07/11/meiquappleid-md/" title="美区Apple ID注册全攻略：在中国如何注册美区Apple ID账号？｜百分百注册成功｜完全免费">美区Apple ID注册全攻略：在中国如何注册美区Apple ID账号？｜百分百注册成功｜完全免费</a><time datetime="2024-07-11T00:03:03.000Z" title="发表于 2024-07-11 08:03:03">2024-07-11</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="deal_link" href="mailto:yixiugm@gmail.com" title="email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://x.com/@yixiu002" title="Twitter"><i class="anzhiyufont anzhiyu-icon-dove"></i></a><a class="deal_link" href="/atom.xml" title="RSS"><i class="anzhiyufont anzhiyu-icon-rss"></i></a><img class="footer_mini_logo" title="返回顶部" alt="返回顶部" onclick="anzhiyu.scrollToDest(0, 500)" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/logo.jpg" size="50px"/><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/yixiu001" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://youtube.com/@yixiu001" title="YouTuBe"><i class="anzhiyufont anzhiyu-icon-play"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://t.me/yxjsjl" title="Telegram"><i class="anzhiyufont anzhiyu-icon-paper-plane"></i></a></div><div class="copyright">&copy;2024 By 一休</div><div id="workboard"><img class="workSituationImg boardsign" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-上班摸鱼中.svg" alt="距离月入25k也就还差一个大佬带我~" title="距离月入25k也就还差一个大佬带我~"/><div id="runtimeTextTip"></div></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title="博客框架为Hexo_v5.4.0"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg" alt="博客框架为Hexo_v5.4.0"/></a><a class="github-badge" target="_blank" href="https://blog.anheyu.com/" style="margin-inline:5px" data-title="本站使用AnZhiYu主题" title="本站使用AnZhiYu主题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.9/img/Theme-AnZhiYu-2E67D3.svg" alt="本站使用AnZhiYu主题"/></a><a class="github-badge" target="_blank" href="https://github.com/yixiu001" style="margin-inline:5px" data-title="本站项目由Github托管" title="本站项目由Github托管"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Source-Github.svg" alt="本站项目由Github托管"/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg" alt="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"/></a></p></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">7</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网站</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://youtube.com/@yixiu001" title="YouTuBe"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico" alt="YouTuBe"/><span class="back-menu-item-text">YouTuBe</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/yixiu001/Figurebed" title="一休自定义图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/images/404.gif&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/about/favicon.ico" alt="一休自定义图床"/><span class="back-menu-item-text">一休自定义图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 全部文章</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于一休</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.youtube.com/@yixiu001"><i class="anzhiyufont anzhiyu-icon-play faa-tada" style="font-size: 0.9em;"></i><span> YouTuBe频道</span></a></li><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://github.com/yixiu001/"><i class="anzhiyufont anzhiyu-icon-github faa-tada" style="font-size: 0.9em;"></i><span> GitHub仓库</span></a></li><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://t.me/yxjsjl"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> TG电报群</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/AppleID/" style="font-size: 0.88rem;">AppleID<sup>1</sup></a><a href="/tags/VPS/" style="font-size: 0.88rem;">VPS<sup>2</sup></a><a href="/tags/serv00/" style="font-size: 0.88rem;">serv00<sup>1</sup></a><a href="/tags/vps/" style="font-size: 0.88rem;">vps<sup>1</sup></a><a href="/tags/%E5%85%8D%E8%B4%B9VPS/" style="font-size: 0.88rem;">免费VPS<sup>2</sup></a><a href="/tags/%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D/" style="font-size: 0.88rem;">免费域名<sup>2</sup></a><a href="/tags/%E6%97%A0%E9%99%90%E9%82%AE%E7%AE%B1/" style="font-size: 0.88rem;">无限邮箱<sup>1</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/" style="font-size: 0.88rem;">虚拟主机<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("07/11/2024 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2024 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 一休 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script async="async">(function () {
+  var grt = new Date("07/11/2024 00:00:00"); //设置网站上线时间
+  var now = new Date();
+  var dnum;
+  var hnum;
+  var mnum;
+  var snum;
+  var nowHour;
+
+  // 计算并更新天数、小时数、分钟数和秒数
+  function updateTime() {
+    now = new Date(); // 更新 now 的值
+    nowHour = now.getHours(); // 更新 nowHour 的值
+    var days = (now - grt) / 1000 / 60 / 60 / 24;
+    dnum = Math.floor(days);
+    var hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+      hnum = "0" + hnum;
+    }
+    var minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+      mnum = "0" + mnum;
+    }
+    var seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+      snum = "0" + snum;
+    }
+  }
+
+  // 更新网页中显示的网站运行时间
+  function updateHtml() {
+    const footer = document.getElementById("footer");
+    if (!footer) return
+    let currentTimeHtml = "";
+    if (nowHour < 18 && nowHour >= 9) {
+      // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    } else {
+      // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
+      let img = document.querySelector("#workboard .workSituationImg");
+      if (img != null) {
+        img.src = "https://cdn.jsdelivr.net/gh/yixiu001/Figurebed@main/blog/svg/一休-下班啦.svg";
+        img.title = "下班了就该开开心心的玩耍，嘿嘿~";
+        img.alt = "下班了就该开开心心的玩耍，嘿嘿~";
+      }
+
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    }
+
+    if (document.getElementById("runtimeTextTip")) {
+      document.getElementById("runtimeTextTip").innerHTML = currentTimeHtml;
+    }
+  }
+
+  setInterval(() => {
+    updateTime();
+    updateHtml();
+  }, 1000);
+})();</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
