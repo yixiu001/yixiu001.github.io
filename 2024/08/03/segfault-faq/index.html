@@ -244,7 +244,7 @@ if (true) {
 </ul>
 <p><strong>23、SSH ProxyJump 和 -N 不起作用</strong><br>有一个解决方法。使用 登录到您的根服务器<code>ssh -D1080 ...</code>。保持此 shell 处于打开状态并处于活动状态。然后（从工作站上的另一个终端）执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -o ProxyCommand=&#x27;socat - &quot;SOCKS4A:0:%h:%p,socksuser=nobody|tcp:0:1080&quot;&#x27; user@remotehost.foo</span><br></pre></td></tr></table></figure>
-<p>或者在你的 ~&#x2F;.ssh&#x2F;config 文件中为 ‘<a href="mailto:&#117;&#115;&#x65;&#x72;&#64;&#x72;&#x65;&#109;&#111;&#116;&#x65;&#104;&#x6f;&#x73;&#116;&#46;&#102;&#111;&#111;">&#117;&#115;&#x65;&#x72;&#64;&#x72;&#x65;&#109;&#111;&#116;&#x65;&#104;&#x6f;&#x73;&#116;&#46;&#102;&#111;&#111;</a>‘ 创建一个条目：</p>
+<p>或者在你的 ~&#x2F;.ssh&#x2F;config 文件中为 ‘<a href="mailto:&#117;&#115;&#101;&#x72;&#64;&#114;&#101;&#x6d;&#111;&#116;&#101;&#104;&#111;&#115;&#116;&#x2e;&#x66;&#111;&#111;">&#117;&#115;&#101;&#x72;&#64;&#114;&#101;&#x6d;&#111;&#116;&#101;&#104;&#111;&#115;&#116;&#x2e;&#x66;&#111;&#111;</a>‘ 创建一个条目：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host remotehost</span><br><span class="line">hostname remotehost.foo</span><br><span class="line">ProxyCommand socat - &quot;SOCKS4A:0:%h:%p,socksuser=nobody|tcp:0:1080&quot;</span><br></pre></td></tr></table></figure>
 <p>并使用<code>ssh user@remotehost</code>登录。</p>
 <p>（供 socat2 使用<code>socat2 - &quot;SOCKS4A:%h:%p|tcp:0:1080&quot;</code>）</p>
